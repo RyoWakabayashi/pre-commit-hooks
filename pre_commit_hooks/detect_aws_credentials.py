@@ -79,8 +79,8 @@ def check_file_for_aws_keys(
     bad_files = []
 
     for filename in filenames:
-        with open(filename, 'rb') as content:
-            text_body = content.read().decode(encoding="utf-8")
+        with open(filename, 'r', encoding="utf-8", errors="ignore") as content:
+            text_body = content.read().encode(encoding="utf-8")
             for key in keys:
                 # naively match the entire file, low chance of incorrect
                 # collision
