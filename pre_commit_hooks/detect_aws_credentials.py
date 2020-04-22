@@ -79,7 +79,7 @@ def check_file_for_aws_keys(
     bad_files = []
 
     for filename in filenames:
-        with open(filename, 'rb', encoding='utf-8_sig') as content:
+        with open(filename, 'r', encoding='utf-8') as content:
             text_body = content.read()
             for key in keys:
                 # naively match the entire file, low chance of incorrect
